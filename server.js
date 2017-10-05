@@ -22,6 +22,7 @@ mongoose.connect(("mongodb://localhost/NYT-React-Search" || "m-lab"), function (
 });
 
 function init() {
+  const app = express();
   const PORT = process.env.PORT || 3001;
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
