@@ -1,6 +1,8 @@
 // Include the Main React Dependencies
+// import './index.css';
 const React = require("react");
 const ReactDOM = require("react-dom");
+
 
 // Include the Main Component
 const Main = require("./App");

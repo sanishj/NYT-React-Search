@@ -1,3 +1,4 @@
+// import './App.css';
 const React = require("react");
 const Form = require("./components/Form");
 const Results = require("./components/ScrapedResults");
@@ -64,7 +65,7 @@ var App = React.createClass({
             <Form setTopic={this.setTopic} setStartYear={this.setStartYear} setEndYear={this.setEndYear} delete={this.delete} />
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title text-center">Saved Articles</h3>
+                <h3 className="panel-title text-center"><strong><i class="fa fa-floppy-o"></i> Saved Articles</strong></h3>
               </div>
               <div className="panel-body text-center">
                 <Saved delete={this.delete} savedArticles={this.state.savedArticles} />
@@ -74,7 +75,7 @@ var App = React.createClass({
           <div className="col-xs-6">
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title text-center">Results</h3>
+                <h3 className="panel-title text-center"><strong> Results</strong></h3>
               </div>
               <div className="panel-body text-center">
                 <Results results={this.state.results} setSaved={this.setSaved} saveArticle={this.saveArticle} />

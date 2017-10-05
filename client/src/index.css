@@ -1,0 +1,12 @@
+body,
+html {
+    background-color: #F2F6D0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: Muli, Helvetica, Arial, sans-serif;
+    webkit-tap-highlight-color: #222;
+}
+
