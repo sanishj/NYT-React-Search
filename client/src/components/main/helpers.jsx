@@ -1,5 +1,5 @@
 const axios = require("axios");
-const authKey = "1d1580ba1e004730ba20593c692834e0";
+const authKey = "2a07bb238d094d32b7f873239d20c426";
 
 const helpers = {
   runQuery: function(topic, startYear, endYear) {
