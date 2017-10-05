@@ -1,19 +1,90 @@
-import React, { Component } from 'react';
-import './App.css';
-import {BrowserRouter as Router, Route } from "react-router-dom"
-import Home from "./components/Home"
-import User from "./components/User"
-class App extends Component {
-  render() {
+const React = require("react");
+const Form = require("./components/Form");
+const Results = require("./components/ScrappedResults");
+const Saved = require("./components/Saved");
+const helpers = require("./components/main/helpers");
+
+var Main = React.createClass({
+  getInitialState: function () {
+    return { topic: "", startYear: "", endYear: "", title: "", url: "", date: "", results: [], save: [], savedArticles: [] };
+  },
+  componentDidMount: function () {
+    this.getSavedArticles();
+  },
+  componentDidUpdate: function (prevProps, prevState) {
+    if (prevState.topic !== this.state.topic) {
+      helpers.runQuery(this.state.topic, this.state.startYear, this.state.endYear).then(function (data) {
+        if (data !== this.state.results) {
+          var articlesMapped = [];
+          data.map(function (art, i) {
+            articlesMapped.push(art);
+          });
+          this.setState({ results: articlesMapped });
+        }
+      }.bind(this));
+    }
+  },
+  setTopic: function (term) {
+    this.setState({ topic: term });
+  },
+  setStartYear: function (term) {
+    this.setState({ startYear: term });
+  },
+  setEndYear: function (term) {
+    this.setState({ endYear: term });
+  },
+  setSavedArticles: function (term) {
+    this.setState({ savedArticles: term });
+  },
+  saveArticle: function (article) {
+    helpers.saveArticle(article).then((res) => {
+      this.setSavedArticles(res);
+    });
+  },
+  getSavedArticles: function (req) {
+    helpers.getSavedArticles().then((res) => {
+      this.setState({ savedArticles: res });
+    });
+  },
+  delete: function (artId) {
+    helpers.delete(artId).then(() => {
+      this.getSavedArticles();
+    });
+  },
+  render: function () {
     return (
-      <Router>
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/users" component={User} />
+      <div className="container">
+        <div className="row">
+          <div className="jumbotron">
+            <h1 className="text-center"><strong><i className="fa fa-newspaper-o"></i> New York Times Search</strong></h1>
+          </div>
         </div>
-      </Router>
+        <div className="row">
+          <div className="col-xs-6">
+            <Form setTopic={this.setTopic} setStartYear={this.setStartYear} setEndYear={this.setEndYear} delete={this.delete} />
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title text-center">Saved Articles</h3>
+              </div>
+              <div className="panel-body text-center">
+                <Saved delete={this.delete} savedArticles={this.state.savedArticles} />
+              </div>
+            </div>
+          </div>
+          <div className="col-xs-6">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title text-center">Results</h3>
+              </div>
+              <div className="panel-body text-center">
+                <Results results={this.state.results} setSaved={this.setSaved} saveArticle={this.saveArticle} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
-}
+});
 
-export default App;
+module.exports = App;

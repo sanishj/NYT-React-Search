@@ -1,31 +1,20 @@
-var React = require("react");
-var ResultsArticle = require('./main/ScrappedArticle');
+const React = require("react");
+const ResultsArticle = require('./main/ScrappedArticle');
 
 var Results = React.createClass({
-
-  render: function() {
-    
-    return (
-      
+  render: function() {    
+    return (      
       <div>
-        
         {this.props.results.map( function (art, i) {
-
-          return (
-            
-            <div key={i}>
-              
-              <ResultsArticle key={i} art={art} url={art.web_url} title={art.headline.main} date={art.pub_date} saveArticle={this.props.saveArticle}/>
-            
-            </div>
-            
+          return (            
+            <div key={i}>              
+              <ResultsArticle key={i} art={art} url={art.web_url} title={art.headline.main} date={art.pub_date} saveArticle={this.props.saveArticle}/>            
+            </div>            
           )
-
-        }.bind(this))}  
-            
+        }.bind(this))}            
       </div>
     );
   }
 });
 
-module.exports = Results;
+module.exports = ScrappedResults;

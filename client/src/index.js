@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// Include the Main React Dependencies
+const React = require("react");
+const ReactDOM = require("react-dom");
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// Include the Main Component
+const Main = require("./App");
+
+// This code here allows us to render our main component (in this case Main)
+ReactDOM.render(<Main />, document.getElementById("app"));
