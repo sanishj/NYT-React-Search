@@ -1,10 +1,10 @@
 const React = require("react");
 const Form = require("./components/Form");
-const Results = require("./components/ScrappedResults");
+const Results = require("./components/ScrapedResults");
 const Saved = require("./components/Saved");
 const helpers = require("./components/main/helpers");
 
-var Main = React.createClass({
+var App = React.createClass({
   getInitialState: function () {
     return { topic: "", startYear: "", endYear: "", title: "", url: "", date: "", results: [], save: [], savedArticles: [] };
   },

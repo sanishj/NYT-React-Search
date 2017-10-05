@@ -1,7 +1,7 @@
 const React = require("react");
 const helpers = require("./helpers.jsx");
 
-var ResultsArticle = React.createClass({
+var SavedArticle = React.createClass({
     save: function (article) {
         this.props.saveArticle(article);
     },

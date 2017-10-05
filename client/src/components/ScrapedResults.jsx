@@ -1,7 +1,7 @@
 const React = require("react");
-const ResultsArticle = require('./main/ScrappedArticle');
+const ResultsArticle = require('./main/ScrapedArticle');
 
-var Results = React.createClass({
+var ScrapedResults = React.createClass({
   render: function() {    
     return (      
       <div>
@@ -17,4 +17,4 @@ var Results = React.createClass({
   }
 });
 
-module.exports = ScrappedResults;
+module.exports = ScrapedResults;
