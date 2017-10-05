@@ -23,7 +23,7 @@ var Form = React.createClass({
   render: function() {    
     return (
       <div className="panel panel-default">          
-        <div className="panel-heading"><h3 className="panel-title text-center"><strong><i class="fa fa-search"></i> Search</strong></h3></div>
+        <div className="panel-heading"><h3 className="panel-title text-center"><strong><span class="glyphicon glyphicon-search"></span> Search</strong></h3></div>
         <div className="panel-body text-center">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
@@ -36,7 +36,7 @@ var Form = React.createClass({
               <h4 className=""><strong>End Year</strong></h4>
               <input type="text" value={this.state.endYear} className="form-control text-center" id="endYear" onChange={this.handleChange} required/>              
               <br />              
-              <button className="btn btn-primary" type="submit">Submit</button>
+              <button className="btn btn-primary" type="submit">Submit <span class="glyphicon glyphicon-search"></span></button>
             </div>
           </form>
         </div>

@@ -7,7 +7,7 @@ var db;
 
 mongoose.Promise = Promise;
 // Database configuration with mongoose
-mongoose.connect(("mongodb://localhost/NYT-React-Search" || "m-lab"), function (err) {
+mongoose.connect(("mongodb://localhost/NYT-React-Search" || "mongodb://heroku_5t64st0n:c14fp659llda6ugbq56pvchvn1@ds111535.mlab.com:11535/heroku_5t64st0n"), function (err) {
   if (err) {
     console.log("Connection Failed!", err);
   } else {
